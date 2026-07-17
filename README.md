@@ -1,4 +1,4 @@
-Just a simple lazy way to get songs from SR music for offline backups. 
+Just a simple lazy way to get songs from SR music for offline backups on Linux.
 
 # Important Note
 I do NOT in any way support piracy. This is meant to download music from SR Music for listening offline. Any abuse of this script will result in it being removed. 
@@ -8,12 +8,19 @@ This was also produced with lots of help from AI. I am not hiding from that, it 
 
 Also, this is far from perfect. It works, but just barely. It does what I need it to do though.
 
-# Instructions
+# Instructions - Manual Mode
 Install the user script. Upon starting a station, or going to the next song, a string containing `Link, Artist, Album, Title, CoverURL` will be copied to clipboard. 
 
-Then go into the bash script, run it, and then paste the link from SR. 
+Then go into the bash script (bash-user.sh), run it, and then paste the link from SR. 
 
 Repeat this for each song that is wanted. 
+
+# Instructions - Auto Mode
+Install the user script, then run the API server using flask, or gunicorn, or something else. It is a flask web server. This should be running on the same machine, or the URLs will need to be updated in the userscript. 
+
+Then go to SR music and start a station, and then click the green `Start Auto Downloader` button. Once that is clicked, it will automatically go from song to song every 4000ms to download them all one at a time for 500 times. This can be increased by pressing on the `Set # of skips` button to something like 1000 or more. The skip interval can be changed from 4000ms by pressing the `Set Auto Skip Interval` button.
+
+It will download the song to the corresponding folder (named same as station) in the folder of the API server. 
 
 # Reqs
 - ffmpeg to add everything into one file
